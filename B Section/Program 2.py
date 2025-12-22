@@ -1,40 +1,18 @@
-# Returns index of x in arr if present, else -1
-def binary_search(arr, low, high, x):
-
-    # Check base case
-    if high >= low:
-        mid = (high + low) // 2
-
-        # If element is present at the middle itself
-        if arr[mid] == x:
-            return mid
-
-        # If element is smaller than mid, search left subarray
-        elif arr[mid] > x:
-            return binary_search(arr, low, mid - 1, x)
-
-        # Else search right subarray
-        else:
-            return binary_search(arr, mid + 1, high, x)
+def fibo(n):
+    if n==0 or n==1:
+        return 1
     else:
-        return -1
+        return fibo(n-1)+fibo(n-2)
 
+def repeat():
+    a=input("\nDo you want to continue (Y/N): ")
+    if a == 'Y' or a=='y':
+        n = int(input("Enter the number : "))
+        print(f"The Fibonacci number of {n} is : ",fibo(n))
+        repeat()
+    else:
+        print("Program Stopped")
 
-# Taking sorted array input at runtime
-arr = []
-
-n = int(input("Enter Number of elements you want to add : "))
-for z in range(0,n):
-    a = int(input(f"Enter the element {z} : "))
-    arr.append(a)
-
-# Taking element to search
-x = int(input("Enter element to search: "))
-
-# Function call
-result = binary_search(arr, 0, len(arr) - 1, x)
-
-if result != -1:
-    print(f"Element {x} is present at index {result}")
-else:
-    print("Element is not present in array")
+n = int(input("Enter the number : "))
+print(f"The Fibonacci number of {n} is : ",fibo(n))
+repeat()
