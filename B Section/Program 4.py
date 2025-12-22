@@ -1,71 +1,58 @@
-# Queue Declaration
-queue = []
-MAX = int(input("Enter queue size: "))
-
-# Check Overflow
-def is_overflow():
-    return len(queue) >= MAX
-
-# Check Underflow
-def is_underflow():
-    return len(queue) == 0
-
-# Function to add an element in queue (ENQUEUE)
-def add():
-    if is_overflow():
-        print("Queue Overflow! Cannot insert item.")
-    else:
-        item = input("Enter your item: ")
-        if item in queue:
-            print("Duplicate value not allowed!")
+class Queue_Adt:
+    def __init__(self):
+        self.queue=[]
+        self.size=int(input("Enter the limit:"))
+    def Enqueue(self):
+        
+        if len(self.queue)>=self.size:
+            print("The Queue is Full:")
         else:
-            queue.append(item)
-            print("Item inserted:", item)
+            for i in range(0,self.size):
+                item=input("Enter the item:")
+                self.queue.append(item)
+                print(f"Given item is Added the Queue:=>{item}")
+        print(self.queue)
+    def Dequeue(self):
+        if len(self.queue)==0:
+            print("Queue is Empty:")
+        else:
+            g=self.queue.pop(0)
+            print(f"Given item is Removed the Queue:=>{g}:")
+        print(self.queue)
+    def disp(self):
+        if len(self.queue)==0:
+            print("Queue is Empty")
+        else:
+            print(f"The current Queue:{self.queue}")
+  
+s=Queue_Adt()
 
-# Function to remove an element in queue (DEQUEUE)
-def remove():
-    if is_underflow():
-        print("Queue Underflow! Queue is empty.")
-    else:
-        e = queue.pop(0)
-        print("Item removed:", e)
-
-# Function to display queue
-def display():
-    if is_underflow():
-        print("Queue is empty")
-    else:
-        print("Current Queue:", queue)
-
-# Menu-driven function
-def repeat():
+def rep():   
     while True:
-        user = input(
-            "\na - Add element\n"
-            "r - Remove element\n"
-            "d - Display queue\n"
-            "e - Exit\n"
-            "\nEnter your choice: "
-        )
-
-        if user == "a":
-            add()
-        elif user == "r":
-            remove()
-        elif user == "d":
-            display()
-        elif user == "e":
-            print("Queue operation stopped")
+        print("Given Choices are available\n1 is Adding the Element in Queue \n2 is Removing Element in Queue\n3 is Display the Queue\n4 is Exit the process")
+        f=int(input("Enter the Choice:"))
+        if f==1:
+            s.Enqueue()
+        elif f==2:
+            s.Dequeue()
+        elif f==3:
+            s.disp()
+        elif f==4:
+            print("Exit the Process:")
             break
-        else:
-            print("INVALID OPTION")
+rep()
+while True:
+    
+    d=input("Do you want to continue?:\nType yes or no:")
+    if d=="yes":
+        rep()
+    elif d=="no":
+        print("The Queue Process was Stopped!")
+        break
+    else:
+        print("Invalid Typing")
 
-# Main Program
-repeat()
-f= input("Do you want to continue yes or no : ")
-if f=="yes":
-    repeat()
-elif f=="no":
-    print("The queue operation stopped")
-else:
-    print("Invalid Key")
+
+    
+
+

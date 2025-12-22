@@ -1,67 +1,58 @@
-# Stack Declaration
-stack = []
-MAX = int(input("Enter stack size: "))
-
-# Check Overflow
-def is_overflow():
-    return len(stack) >= MAX
-
-# Check Underflow
-def is_underflow():
-    return len(stack) == 0
-
-def add():
-    if is_overflow():
-        print("Stack Overflow! Cannot insert item.")
-    else:
-        item = input("Enter your item: ")
-        if item in stack:
-            print("Duplicate value not allowed!")
+class Stack_Adt:
+    def __init__(self):
+        self.stack=[]
+        self.size=int(input("Enter the limit:"))
+    def Push(self):
+        
+        if len(self.stack)>=self.size:
+            print("The Stack is Overflow:")
         else:
-            stack.append(item)
-            print("Item inserted:", item)
+            for i in range(0,self.size):
+                item=input("Enter the item:")
+                self.stack.append(item)
+                print(f"Given item is Pushed:=>{item}")
+        print(self.stack)
+    def Pop(self):
+        if len(self.stack)==0:
+            print("Stack is Underflow:")
+        else:
+            g=self.stack.pop()
+            print(f"Given item is Popped:=>{g}:")
+        print(self.stack)
+    def disp(self):
+        if len(self.stack)==0:
+            print("Stack is Underflow")
+        else:
+            print(f"The current Stack:{self.stack}")
+  
+s=Stack_Adt()
 
-def remove():
-    if is_underflow():
-        print("Stack Underflow! Stack is empty.")
-    else:
-        e = stack.pop()
-        print("Item removed:", e)
-
-def display():
-    if is_underflow():
-        print("Stack is empty")
-    else:
-        print("Current Stack:", stack)
-
-def repeat():
+def rep():   
     while True:
-        user = input(
-            "\na - Add element\n"
-            "r - Remove element\n"
-            "d - Display stack\n"
-            "e - Exit\n"
-            "\nEnter your choice: "
-        )
-
-        if user == "a":
-            add()
-        elif user == "r":
-            remove()
-        elif user == "d":
-            display()
-        elif user == "e":
-            print("The stack operation is stopped!")
+        print("Given Choices are available\n1 is Push Function\n2 is Pop Function\n3 is Display Function\n4 is Exit the process")
+        f=int(input("Enter the Choice:"))
+        if f==1:
+            s.Push()
+        elif f==2:
+            s.Pop()
+        elif f==3:
+            s.disp()
+        elif f==4:
+            print("Exit the Process:")
             break
-        else:
-            print("INVALID OPTION")
+rep()
+while True:
+    
+    d=input("Do you want to continue?:/nType yes or no:")
+    if d=="yes":
+        rep()
+    elif d=="no":
+        print("The Stack Process was Stopped!")
+        break
+    else:
+        print("Invalid Typing")
 
-# Main Program
-repeat()
-f= input("Do you want to continue yes or no : ")
-if f=="yes":
-    repeat()
-elif f=="no":
-    print("The stack operation stopped")
-else:
-    print("Invalid Key")
+
+    
+
+
