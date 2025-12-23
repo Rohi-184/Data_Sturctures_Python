@@ -24,13 +24,11 @@ class Stack_Adt:
             print("Stack is Underflow")
         else:
             print(f"The current Stack:{self.stack}")
-  
-s=Stack_Adt()
 
 def rep():   
     while True:
-        print("Given Choices are available\n1 is Push Function\n2 is Pop Function\n3 is Display Function\n4 is Exit the process")
-        f=int(input("Enter the Choice:"))
+        print("\nGiven Choices are available\n1 is Push Function\n2 is Pop Function\n3 is Display Function\n4 is Exit the process")
+        f=int(input("\nEnter the Choice:"))
         if f==1:
             s.Push()
         elif f==2:
@@ -40,13 +38,14 @@ def rep():
         elif f==4:
             print("Exit the Process:")
             break
+
+s=Stack_Adt()
 rep()
 while True:
-    
-    d=input("Do you want to continue?:/nType yes or no:")
-    if d=="yes":
+    d=input("\nDo you want to continue (Y or N) :")
+    if d=="y" or d=="Y":
         rep()
-    elif d=="no":
+    elif d=="n" or d=="N":
         print("The Stack Process was Stopped!")
         break
     else:
