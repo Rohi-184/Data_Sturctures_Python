@@ -2,8 +2,8 @@ class Stack_Adt:
     def __init__(self):
         self.stack=[]
         self.size=int(input("Enter the limit:"))
-    def Push(self):
         
+    def Push(self):
         if len(self.stack)>=self.size:
             print("The Stack is Overflow:")
         else:
@@ -11,14 +11,14 @@ class Stack_Adt:
                 item=input("Enter the item:")
                 self.stack.append(item)
                 print(f"Given item is Pushed:=>{item}")
-        print(self.stack)
+
     def Pop(self):
         if len(self.stack)==0:
             print("Stack is Underflow:")
         else:
             g=self.stack.pop()
             print(f"Given item is Popped:=>{g}:")
-        print(self.stack)
+
     def disp(self):
         if len(self.stack)==0:
             print("Stack is Underflow")

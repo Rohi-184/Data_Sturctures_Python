@@ -2,8 +2,8 @@ class Queue_Adt:
     def __init__(self):
         self.queue=[]
         self.size=int(input("Enter the limit:"))
-    def Enqueue(self):
         
+    def Enqueue(self):
         if len(self.queue)>=self.size:
             print("The Queue is Full:")
         else:
@@ -11,14 +11,14 @@ class Queue_Adt:
                 item=input("Enter the item:")
                 self.queue.append(item)
                 print(f"Given item is Added the Queue:=>{item}")
-        print(self.queue)
+
     def Dequeue(self):
         if len(self.queue)==0:
             print("Queue is Empty:")
         else:
             g=self.queue.pop(0)
             print(f"Given item is Removed the Queue:=>{g}:")
-        print(self.queue)
+
     def disp(self):
         if len(self.queue)==0:
             print("Queue is Empty")
