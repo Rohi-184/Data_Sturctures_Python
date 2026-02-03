@@ -108,8 +108,8 @@ class BinarySearchTree:
 bst = BinarySearchTree()
 
 while True:
-    print("\n1. Insert  2. Delete  3. Search  4. Inorder  5. Preorder  6. Postorder  7. Exit")
-    choice = int(input("Enter your choice (1-7): "))
+    print("\n1. Insert  2. Delete  3. Search  4. Traversal  5. Exit")
+    choice = int(input("Enter your choice (1-5): "))
 
     if choice == 1:
         value = int(input("Enter value to insert: "))
@@ -125,20 +125,23 @@ while True:
         bst.search(value)
 
     elif choice == 4:
-        print("Inorder Traversal:", end=" ")
-        bst.inorder()
+        print("\nTraversal Menu: 1. Inorder  2. Preorder  3. Postorder")
+        traversal_choice = int(input("Enter traversal choice (1-3): "))
+        if traversal_choice == 1:
+            print("Inorder Traversal:", end=" ")
+            bst.inorder()
+        elif traversal_choice == 2:
+            print("Preorder Traversal:", end=" ")
+            bst.preorder()
+        elif traversal_choice == 3:
+            print("Postorder Traversal:", end=" ")
+            bst.postorder()
+        else:
+            print("Invalid traversal choice! Please enter 1 to 3.")
 
     elif choice == 5:
-        print("Preorder Traversal:", end=" ")
-        bst.preorder()
-
-    elif choice == 6:
-        print("Postorder Traversal:", end=" ")
-        bst.postorder()
-
-    elif choice == 7:
         print("Program ended")
         break
 
     else:
-        print("Invalid choice! Please enter 1 to 7.")
+        print("Invalid choice! Please enter 1 to 5.")
