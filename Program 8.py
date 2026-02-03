@@ -1,5 +1,4 @@
 class Node:
-    """Represents a single node in the doubly linked list."""
     def __init__(self, data):
         self.data = data
         self.prev = None
@@ -7,7 +6,6 @@ class Node:
 
 
 class DoublyLinkedList:
-    """Represents the doubly linked list."""
     def __init__(self):
         self.head = None
 
@@ -81,7 +79,6 @@ class DoublyLinkedList:
         print("None")
 
 
-# -------- Menu Driven Program --------
 
 dll = DoublyLinkedList()
 
@@ -108,7 +105,7 @@ while True:
         dll.display()
 
     elif choice == 5:
-        print("\nAlbumXpressPack-13.5")
+        print("\nExiting...")
         break
 
     else:

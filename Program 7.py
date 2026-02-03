@@ -1,12 +1,10 @@
 class Node:
-    """Represents a single node in the linked list."""
     def __init__(self, data):
         self.data = data
         self.next = None
 
 
 class LinkedList:
-    """Represents the singly linked list."""
     def __init__(self):
         self.head = None
 
@@ -68,7 +66,6 @@ class LinkedList:
         print("None")
 
 
-# -------- Menu Driven Program --------
 
 llist = LinkedList()
 

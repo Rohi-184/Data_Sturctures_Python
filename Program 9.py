@@ -1,5 +1,4 @@
 class Node:
-    """Node in the Binary Search Tree."""
     def __init__(self, data):
         self.data = data
         self.left = None
@@ -7,7 +6,6 @@ class Node:
 
 
 class BinarySearchTree:
-    """Binary Search Tree with level-based search and all traversals."""
     def __init__(self):
         self.root = None
 
@@ -106,7 +104,6 @@ class BinarySearchTree:
             print(root.data, end=" ")
 
 
-# -------- Menu-Driven Program --------
 
 bst = BinarySearchTree()
 
