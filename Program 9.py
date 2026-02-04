@@ -125,19 +125,12 @@ while True:
         bst.search(value)
 
     elif choice == 4:
-        print("\nTraversal Menu: 1. Inorder  2. Preorder  3. Postorder")
-        traversal_choice = int(input("Enter traversal choice (1-3): "))
-        if traversal_choice == 1:
             print("Inorder Traversal:", end=" ")
             bst.inorder()
-        elif traversal_choice == 2:
             print("Preorder Traversal:", end=" ")
             bst.preorder()
-        elif traversal_choice == 3:
             print("Postorder Traversal:", end=" ")
             bst.postorder()
-        else:
-            print("Invalid traversal choice! Please enter 1 to 3.")
 
     elif choice == 5:
         print("Program ended")
