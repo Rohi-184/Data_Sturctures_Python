@@ -35,28 +35,28 @@ class TreeVisualizer:
     def __init__(self, bst):
         self.window = tk.Tk()
         self.window.title("Binary Tree Visualization")
-        self.canvas = tk.Canvas(self.window, width=900, height=600, bg="white")
+        self.canvas = tk.Canvas(self.window, width=1920, height=1080, bg="white")
         self.canvas.pack()
-        self.radius = 20
-        self.draw_tree(bst.root, 450, 50, 200)
+        self.radius = 30
+        self.draw_tree(bst.root, 600, 50, 200)
         self.window.mainloop()
 
     def draw_tree(self, node, x, y, gap):
         if node:
             if node.left:
-                self.canvas.create_line(x, y, x - gap, y + 150)
-                self.draw_tree(node.left, x - gap, y + 150, gap // 2)
+                self.canvas.create_line(x, y, x - gap, y + 200)
+                self.draw_tree(node.left, x - gap, y + 200, gap // 2)
 
             if node.right:
-                self.canvas.create_line(x, y, x + gap, y + 150)
-                self.draw_tree(node.right, x + gap, y + 150, gap // 2)
+                self.canvas.create_line(x, y, x + gap, y + 200)
+                self.draw_tree(node.right, x + gap, y + 200, gap // 2)
 
             self.canvas.create_oval(
                 x - self.radius, y - self.radius,
                 x + self.radius, y + self.radius,
                 fill="lightgreen"
             )
-            self.canvas.create_text(x, y, text=str(node.data), font=("Arial", 12, "bold"), fill="black")
+            self.canvas.create_text(x, y, text=str(node.data), font=("Arial", 13, "bold"), fill="black")
 
 
 # -------- MAIN --------
