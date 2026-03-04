@@ -27,18 +27,15 @@ def main():
             print("  a. Delete Highest Priority (Min)")
             print("  b. Delete Lowest Priority (Max)")
             print("  c. Delete Particular Value")
-            sub_choice = input("  Select (a/b): ").lower()
+            sub_choice = input("  Select (a/b/c): ").lower()
 
             if sub_choice == 'a':
                 removed = heapq.heappop(pq)
                 print(f"Removed Minimum: {removed}")
 
             elif sub_choice == 'b':
-                # Find the max value
                 maximum = max(pq)
-                # Find its index and remove it
                 pq.remove(maximum)
-                # Re-establish the heap property
                 heapq.heapify(pq)
                 print(f"Removed Maximum: {maximum}")
 
@@ -46,14 +43,13 @@ def main():
                 key = input("Enter Value to delete: ")
                 if key.isdigit():
                     key = int(key)
-                for i in pq:
-                    if i == key:
-                        pq.remove(key)
-                        print(f"Removed {key}")
-                        break
+                if key in pq:
+                    pq.remove(key)
+                    heapq.heapify(pq)
+                    print(f"Removed {key}")
                 else:
                     print(f"Value {key} is not present in the queue.")
-                    break
+
             else:
                 print("Invalid selection.")
 
@@ -73,8 +69,8 @@ def main():
         elif choice == '5':
             print("Exiting......")
             break
+
         else:
             print("Invalid choice. Try again.")
-
 
 main()
