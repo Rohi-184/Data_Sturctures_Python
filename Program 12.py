@@ -1,6 +1,5 @@
 import heapq
 
-
 def main():
     pq = []
     while True:
@@ -11,7 +10,7 @@ def main():
         print("4. Display All (Sorted)")
         print("5. Exit")
 
-        choice = input("\nSelect an option: ")
+        choice = input("\nSelect an option (1-5): ")
 
         if choice == '1':
             val = input("Enter value to insert: ")
@@ -27,11 +26,13 @@ def main():
 
             print("  a. Delete Highest Priority (Min)")
             print("  b. Delete Lowest Priority (Max)")
+            print("  c. Delete Particular Value")
             sub_choice = input("  Select (a/b): ").lower()
 
             if sub_choice == 'a':
                 removed = heapq.heappop(pq)
                 print(f"Removed Minimum: {removed}")
+
             elif sub_choice == 'b':
                 # Find the max value
                 maximum = max(pq)
@@ -40,6 +41,19 @@ def main():
                 # Re-establish the heap property
                 heapq.heapify(pq)
                 print(f"Removed Maximum: {maximum}")
+
+            elif sub_choice == 'c':
+                key = input("Enter Value to delete: ")
+                if key.isdigit():
+                    key = int(key)
+                for i in pq:
+                    if i == key:
+                        pq.remove(key)
+                        print(f"Removed {key}")
+                        break
+                else:
+                    print(f"Value {key} is not present in the queue.")
+                    break
             else:
                 print("Invalid selection.")
 
@@ -63,5 +77,4 @@ def main():
             print("Invalid choice. Try again.")
 
 
-if __name__ == "__main__":
-    main()
+main()
