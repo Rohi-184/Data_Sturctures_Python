@@ -1,41 +1,30 @@
-<<<<<<< Updated upstream
-def fibo(n):
-    if n==0 or n==1:
-        return 1
-    else:
-        return fibo(n-1)+fibo(n-2)
+def binary_search_recursive(arr, low, high, target):
+    # Base case: Search space is exhausted
+    if low > high:
+        return -1
 
-def repeat():
-    a=input("\nDo you want to continue (Y/N): ")
-    if a == 'Y' or a=='y':
-        n = int(input("Enter the number : "))
-        print(f"The Fibonacci number of {n} is : ",fibo(n))
-        repeat()
-    else:
-        print("Program Stopped")
+    # Find the middle index
+    mid = (low + high) // 2
 
-n = int(input("Enter the number : "))
-print(f"The Fibonacci number of {n} is : ",fibo(n))
-=======
-def fibonacci(n):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return fibonacci(n - 1) + fibonacci(n - 2)
-
-def repeat():
-    a = input("\nDo you want to continue yes or no : ")
-    if a == "yes":
-        n = int(input("Enter a number: "))
-        result = fibonacci(n)
-        print("Fibonacci of", n, "is", result)
-        repeat()
-    else:
-        print("Program Stopped")
+    # Case 1: Target found at mid
+    if arr[mid] == target:
+        return mid
     
+    # Case 2: Target is smaller than mid, search the left half
+    elif target < arr[mid]:
+        return binary_search_recursive(arr, low, mid - 1, target)
     
-n = int(input("Enter a number: "))
-result = fibonacci(n)
-print("Fibonacci of", n, "is", result)
->>>>>>> Stashed changes
-repeat()
+    # Case 3: Target is larger than mid, search the right half
+    else:
+        return binary_search_recursive(arr, mid + 1, high, target)
+
+# Example Usage:
+my_list = [10, 22, 35, 47, 50, 63, 75, 88, 99]
+target_val = 75
+
+result = binary_search_recursive(my_list, 0, len(my_list) - 1, target_val)
+
+if result != -1:
+    print(f"Element found at index: {result}")
+else:
+    print("Element not present in array")
